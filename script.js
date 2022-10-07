@@ -2,13 +2,41 @@ function getComputerChoice() {
     let choice = Math.floor((Math.random() * 100) + 1);
     
     if (choice < 33) {
-        return "Rock"
+        return "rock";
     } else if (choice < 66) {
-        return "Paper"
+        return "paper";
     } else {
-        return "Scissors"
+        return "scissors";
     }
 }
 
+function playRound(playerSelection, computerSelection) {
+    playerSelection = playerSelection.toLowerCase();
 
+    if (playerSelection !== "rock" && playerSelection !== "paper" && playerSelection !== "scissors") {
+        return false;
+    }
 
+    if (playerSelection === "rock") {
+        if (computerSelection === "rock") {
+            return "Computer Selected Rock: It's a tie!";
+        } else if (computerSelection === "scissors") {
+            return "Computer Selected Scissors: You win!";
+        } else {
+            return "Computer Selected Paper: You Lose!";        }
+    } else if (playerSelection === "Paper") {
+        if (computerSelection === "rock") {
+            return "Computer Selected Rock: You win!";
+        } else if (computerSelection === "scissors") {
+            return "Computer Selected Scissors: You lose!";
+        } else {
+            return "Computer Selected Paper: It's a tie!";        }
+    } else {
+        if (computerSelection === "rock") {
+            return "Computer Selected Rock: You lose!";
+        } else if (computerSelection === "scissors") {
+            return "Computer Selected Scissors: It's a tie!";
+        } else {
+            return "Computer Selected Paper: You win!";        }
+    } 
+}
