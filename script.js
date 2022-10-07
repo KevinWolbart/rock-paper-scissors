@@ -40,3 +40,13 @@ function playRound(playerSelection, computerSelection) {
             return "Computer Selected Paper: You win!";        }
     } 
 }
+
+function game() {
+    for (let i = 0; i < 5; i++) {
+        let playerSelection = prompt("Rock, Paper, Scissors, Shoot! - Which do you pick?", "I'm lame!");
+        let computerSelection = getComputerChoice();
+        playRound(playerSelection, computerSelection) ? console.log(playRound(playerSelection, computerSelection)): console.log("No selection was made...lame.");
+    }
+}
+
+game();
