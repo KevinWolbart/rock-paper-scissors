@@ -10,8 +10,9 @@ function getComputerChoice() {
     }
 }
 
-function playRound(playerSelection, computerSelection) {
-    playerSelection = playerSelection.toLowerCase();
+function playRound(e) {
+    let playerSelection = e.target.className;
+    let computerSelection = getComputerChoice();
 
     if (playerSelection !== "rock" && playerSelection !== "paper" && playerSelection !== "scissors") {
         return false;
@@ -19,34 +20,41 @@ function playRound(playerSelection, computerSelection) {
 
     if (playerSelection === "rock") {
         if (computerSelection === "rock") {
-            return "Computer Selected Rock: It's a tie!";
+            console.log("Computer Selected Rock: It's a tie!");
         } else if (computerSelection === "scissors") {
-            return "Computer Selected Scissors: You win!";
+            console.log("Computer Selected Scissors: You win!");
         } else {
-            return "Computer Selected Paper: You Lose!";        }
+            console.log("Computer Selected Paper: You Lose!");        }
     } else if (playerSelection === "Paper") {
         if (computerSelection === "rock") {
-            return "Computer Selected Rock: You win!";
+            console.log("Computer Selected Rock: You win!");
         } else if (computerSelection === "scissors") {
-            return "Computer Selected Scissors: You lose!";
+            console.log("Computer Selected Scissors: You lose!");
         } else {
-            return "Computer Selected Paper: It's a tie!";        }
+            console.log("Computer Selected Paper: It's a tie!");        }
     } else {
         if (computerSelection === "rock") {
-            return "Computer Selected Rock: You lose!";
+            console.log("Computer Selected Rock: You lose!");
         } else if (computerSelection === "scissors") {
-            return "Computer Selected Scissors: It's a tie!";
+            console.log("Computer Selected Scissors: It's a tie!");
         } else {
-            return "Computer Selected Paper: You win!";        }
+            console.log("Computer Selected Paper: You win!");        }
     } 
 }
 
-function game() {
+const rock = document.querySelector(".rock");
+rock.addEventListener("click", playRound);
+
+const paper = document.querySelector(".paper");
+paper.addEventListener("click", playRound);
+
+const scissors = document.querySelector(".scissors");
+scissors.addEventListener("click", playRound);
+
+/*function game() {
     for (let i = 0; i < 5; i++) {
         let playerSelection = prompt("Rock, Paper, Scissors, Shoot! - Which do you pick?", "I'm lame!");
         let computerSelection = getComputerChoice();
         playRound(playerSelection, computerSelection) ? alert(playRound(playerSelection, computerSelection)): alert("No selection was made...lame.");
     }
-}
-
-game();
+}*/
